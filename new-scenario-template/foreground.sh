@@ -9,14 +9,9 @@ sudo apt-get install -y \
   lsb-release \
   apt-transport-https
 
-# Install Docker
-sudo apt-get install -y \
-  docker-ce \
-  docker-ce-cli \
-  containerd.io
-
 # Install kubectl and helm
-snap install --classic kubectl helm
+snap install --classic kubectl
+snap install --classic helm
 
 # Install KinD
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
@@ -31,7 +26,7 @@ reg_ip="$(docker inspect -f '{{.NetworkSettings.Networks.kind.IPAddress}}' kind-
 cat <<EOF | ./kind create cluster --name "kind" --config=-
 apiVersion: kind.x-k8s.io/v1alpha4
 kind: Cluster
-containerdConfigPatches: 
+containerdConfigPatches:
 - |-
   [plugins."io.containerd.grpc.v1.cri".registry.mirrors."localhost:${reg_port}"]
     endpoint = ["http://${reg_ip}:${reg_port}"]
@@ -40,3 +35,7 @@ EOF
 docker pull cyberark/conjur-cli:5-latest
 docker image tag cyberark/conjur-cli:5-latest localhost:5000/conjur-cli:5-latest
 docker image push localhost:5000/conjur-cli:5-latest
+
+# Add and update CyberArk Helm repository
+helm add repo cyberark https://cyberark.github.io/helm-charts
+helm repo update
