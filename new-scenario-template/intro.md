@@ -1,6 +1,11 @@
-# New Scenario Template (Your Title Here)
+# Secrets Provider Quick Start Guide: Push to File
 
-This is a mostly empty template. To create your own first scenario, duplicate this in your own repo, then modify it as needed.
+This quick-start will guide users through the process of deploying an
+application that uses CyberArk's Secrets Provider in Push-to-File mode, where
+secrets are provided to the app through a shared filesystem.
+
+For more information, see the
+[Secrets Provider GitHub repository](https://github.com/cyberark/secrets-provider-for-k8s).
 
 ## Description
 
