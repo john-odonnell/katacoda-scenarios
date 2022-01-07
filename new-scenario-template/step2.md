@@ -1,5 +1,8 @@
 # Load Conjur Policy to Prepare the Kubernetes Authenticator
 
+Next, deploy a Conjur CLI pod, and load policy to setup the Conjur Kubernetes
+Authenticator.
+
 Deploy a Conjur CLI pod to the recently created Conjur namespace:
 
 ```
@@ -45,7 +48,7 @@ kubectl cp /policy "${CLI_POD}:/policy" -n conjur-oss
 
 Get a shell into the CLI container:
 ```
-kubectl exec -it "$CLI_POD" -- /bin/bash
+kubectl exec -it "$CLI_POD" -n conjur-oss -- /bin/bash
 ```{{execute}}
 
 Initialize and authenticate the CLI:
@@ -70,3 +73,11 @@ conjur variable values add quickstart-app-resources/password 'MySecr3tP@ssword'
 ```{{execute}}
 
 Exit the CLI with `exit`{{execute}}.
+
+Now that the Kubernetes Authenticator has been setup in policy, initialize
+the authenticator's certificate authority.
+
+```
+kubectl exec "$CONJUR_POD" -c conjur-oss -n conjur-oss \
+  -- bash -c "CONJUR_ACCOUNT=myAccount rake authn_k8s:ca_init['conjur/authn-k8s/quickstart-cluster']"
+```{{execute}}
