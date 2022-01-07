@@ -28,7 +28,7 @@
     "assets": {
       "host01": [
         {"file": "get-conjur-cert.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-        {"file": "setup_k8s_auth.yml", "target": "/policy/"},
+        {"file": "setup_k8s_authn.yml", "target": "/policy/"},
         {"file": "create_host.yml", "target": "/policy/"},
         {"file": "app_secrets.yml", "target": "/policy/"},
         {"file": "grants.yml", "target": "/policy/"}
