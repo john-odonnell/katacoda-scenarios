@@ -62,7 +62,7 @@ Load the Conjur Policy to setup the Kubernetes Authenticator:
 conjur policy load root /policy/setup_k8s_authn.yml
 conjur policy load root /policy/create_host.yml
 conjur policy load root /policy/app_secrets.yml
-conjur policy load root /policy/grants
+conjur policy load root /policy/grants.yml
 ```{{execute}}
 
 Add secret values to Conjur:

@@ -1,7 +1,7 @@
 # Deploy the Secrets-Provider-enabled Application
 
 ```
-kubectl apply -n quickstart-namespace -f -
+cat <<EOF | kubectl apply -n quickstart-namespace -f -
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -82,6 +82,7 @@ spec:
         - name: conjur-templates
           emptyDir:
             medium: Memory
+EOF
 ```{{execute}}
 
 Once the application has been deployed, exec into the application container.
@@ -89,16 +90,14 @@ For this example, the application is an Ubuntu container, for the purpose of
 examining the shared secret files.
 
 ```
-APP_POD="$(kubectl get pods -n quickstart-cluster | grep quickstart-app | awk '{print $1}')"
+APP_POD="$(kubectl get pods -n quickstart-namespace | grep quickstart-app | awk '{print $1}')"
 kubectl exec -it "$APP_POD" -n quickstart-namespace -- /bin/bash
 ```{{execute}}
 
 Investigate the contents of the secret file with
-`cat /conjur/secrets/credentials.yaml`{{execute}}. The output should resemble
+`cat /opt/secrets/conjur/credentials.json`{{execute}}. The output should resemble
 the following:
 
 ```
-url: "https://service-url.com"
-admin_username: "quickstartUser"
-admin_password: "MySecr3tP@ssword"
+{"url": "https://service-url.com", "admin_username": "quickstartUser", "admin_password": "MySecr3tP@ssword"}
 ```

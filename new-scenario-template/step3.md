@@ -24,7 +24,7 @@ chart. This Helm chart creates:
 helm install cluster-prep-chart cyberark/conjur-config-cluster-prep -n conjur-oss \
   --set conjur.account="myAccount" \
   --set conjur.applianceUrl="https://conjur-deployment-conjur-oss.conjur-oss.svc.cluster.local" \
-  --set conjur.certificateBase64="$(cat ./conjur-certificate.pem | base64)" \
+  --set conjur.certificateBase64="$(cat ./conjur-certificate.pem | base64 --wrap=0)" \
   --set authnK8s.authenticatorID="quickstart-cluster" \
   --set authnK8s.clusterRole.name="conjur-clusterrole"
 ```{{execute}}
