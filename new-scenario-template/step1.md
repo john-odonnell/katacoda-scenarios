@@ -15,14 +15,12 @@ helm install -n conjur-oss --create-namespace --wait --timeout 300s \
   conjur-deployment cyberark/conjur-oss
 ```{{execute}}
 
-Then, initialize the Kubernetes Authenticator's certificate authority:
+Then, retrieve the API key for user `admin`:
 
 ```
 CONJUR_POD="$(kubectl get pods -n conjur-oss | grep conjur-oss | awk '{print $1}')"
 ADMIN_API_KEY="$(kubectl exec -n conjur-oss $CONJUR_POD \
   --container="conjur-oss" \
   -- conjurctl role retrieve-key myAccount:user:admin | tail -1)"
-kubectl exec "$CONJUR_POD" -c conjur-oss -n conjur-oss \
-  -- bash -c "CONJUR_ACCOUNT=myAccount rake authn_k8s:ca_init['conjur/authn-k8s/quickstart-cluster']"
 ```{{execute}}
 

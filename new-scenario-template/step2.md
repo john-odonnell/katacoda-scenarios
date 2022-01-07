@@ -1,8 +1,72 @@
-# Heading for Step 2
+# Load Conjur Policy to Prepare the Kubernetes Authenticator
 
-This is some text.
+Deploy a Conjur CLI pod to the recently created Conjur namespace:
 
-Here's a single line of runnable code:
+```
+cat <<EOF | kubectl apply -n conjur-oss -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conjur-cli
+  labels:
+    app: conjur-cli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: conjur-cli
+  template:
+    metadata:
+      name: conjur-cli
+      labels:
+        app: conjur-cli
+    spec:
+      serviceAccountName: conjur-deployment-conjur-oss
+      containers:
+      - name: conjur-cli
+        image: localhost:5000/conjur-cli:5-latest
+        imagePullPolicy: Always
+        command: ["sleep"]
+        args: ["infinity"]
+        env:
+        - name: ADMIN_API_KEY
+          value: ${ADMIN_API_KEY}
+      imagePullSecrets:
+        - name: dockerpullsecret
+EOF
+```{{execute}}
 
-`printf 'Jello, world!\n\n'`{{execute}}
+Once the CLI pod is running, copy policy files into the CLI container:
 
+```
+CLI_POD="$(kubectl get pods -n conjur-oss | grep cli | awk '{print $1}')"
+kubectl cp /policy "${CLI_POD}:/policy" -n conjur-oss
+```{{execute}}
+
+Get a shell into the CLI container:
+```
+kubectl exec -it "$CLI_POD" -- /bin/bash
+```{{execute}}
+
+Initialize and authenticate the CLI:
+```
+yes yes | conjur init -u https://conjur-deployment-conjur-oss.conjur-oss.svc.cluster.local -a myAccount
+conjur authn login -u admin -p $ADMIN_API_KEY
+```{{execute}}
+
+Load the Conjur Policy to setup the Kubernetes Authenticator:
+```
+conjur policy load root /policy/setup_k8s_authn.yml
+conjur policy load root /policy/create_host.yml
+conjur policy load root /policy/app_secrets.yml
+conjur policy load root /policy/grants
+```{{execute}}
+
+Add secret values to Conjur:
+```
+conjur variable values add quickstart-app-resources/url 'https://service-url.com'
+conjur variable values add quickstart-app-resources/username 'quickstartUser'
+conjur variable values add quickstart-app-resources/password 'MySecr3tP@ssword'
+```{{execute}}
+
+Exit the CLI with `exit`{{execute}}.

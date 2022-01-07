@@ -32,10 +32,11 @@ containerdConfigPatches:
     endpoint = ["http://${reg_ip}:${reg_port}"]
 EOF
 
+# Pull and push Conjur CLI image
 docker pull cyberark/conjur-cli:5-latest
 docker image tag cyberark/conjur-cli:5-latest localhost:5000/conjur-cli:5-latest
 docker image push localhost:5000/conjur-cli:5-latest
 
 # Add and update CyberArk Helm repository
-helm add repo cyberark https://cyberark.github.io/helm-charts
+helm repo add cyberark https://cyberark.github.io/helm-charts
 helm repo update
