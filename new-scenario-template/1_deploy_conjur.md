@@ -1,9 +1,16 @@
 # Deploy Conjur Open Source
 
-In this step, deploy Conjur Open Source on the KinD cluster using the Conjur
+First, we will deploy Conjur Open Source on the KinD cluster using the Conjur
 OSS Helm Chart.
 
-The following command will deploy Conjur Open Source, create an account
+Add the CyberArk Helm repository:
+
+```
+helm repo add cyberark https://cyberark.github.io/helm-charts
+helm repo update
+```{{execute}}
+
+Once the repo is added, the following command will deploy Conjur Open Source, create an account
 `myAccount`, and enable a Kubernetes Authenticator `quickstart-cluster`:
 
 ```

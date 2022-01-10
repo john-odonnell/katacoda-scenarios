@@ -1,25 +1,25 @@
 {
-  "title": "Secrets Provider Quick Start Guide: Push to File",
-  "description": "A simple scenario example.",
+  "title": "Secrets Provider Push-to-File Quick Start Guide",
+  "description": "Deploy an application that uses Secrets Provider in Push-to-File mode.",
   "difficulty": "Beginner",
   "time": "3 minutes",
   "details": {
     "steps": [
       {
-        "title": "Step 1",
-        "text": "step1.md"
+        "title": "Deploy Conjur Open Source",
+        "text": "1_deploy_conjur.md"
       },
       {
-        "title": "Step 2",
-        "text": "step2.md"
+        "title": "Configure the Kubernetes Authenticator",
+        "text": "2_configure_authenticator.md"
       },
       {
-        "title": "Step 3",
-        "text": "step3.md"
+        "title": "Install the Conjur Configuration Helm Charts",
+        "text": "3_install_config_charts.md"
       },
       {
-        "title": "Step 4",
-        "text": "step4.md"
+        "title": "Deploy the Application with a Secrets Provider Init Container",
+        "text": "4_deploy_sp_app.md"
       }
     ],
     "intro": {
@@ -33,6 +33,7 @@
     "assets": {
       "host01": [
         {"file": "get-conjur-cert.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+        {"file": "app_manifest.yml", "target": "/manifests/"},
         {"file": "setup_k8s_authn.yml", "target": "/policy/"},
         {"file": "create_host.yml", "target": "/policy/"},
         {"file": "app_secrets.yml", "target": "/policy/"},

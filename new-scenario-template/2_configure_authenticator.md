@@ -1,4 +1,6 @@
-# Load Conjur Policy to Prepare the Kubernetes Authenticator
+# Configure the Kubernetes Authenticator
+
+Next, we will configure the Kubernetes Authenticator, and an identity 
 
 Next, deploy a Conjur CLI pod, and load policy to setup the Conjur Kubernetes
 Authenticator.
