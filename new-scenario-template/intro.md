@@ -16,5 +16,3 @@ including `kubectl` and `helm`.
 2. Configure the Conjur Kubernetes Authenticator
 3. Install the Conjur Configuration Helm charts
 4. Configure and deploy the application and Secrets Provider
-
-Once the terminal reads `Environment ready`, proceed to the next step.

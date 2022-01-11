@@ -1,20 +1,15 @@
+## We have...
 
-On the finish page, summarize what was just learned:
+1. Deployed Conjur Open Source
+2. Configured the Conjur Kubernetes Authenticator
+3. Installed the Conjur Configuration Helm charts
+4. Configured and deployed an application with Secrets Provider in Push-to-File mode
 
-- 3-4 bullets
-- of what you just
-- did and learned
+## For more information...
 
-## Table of Contents
+- [CyberArk Secrets Provider for K8s GitHub Repository](https://github.com/cyberark/secrets-provider-for-k8s)
+- [Push-to-File Feature Documentation](https://github.com/cyberark/secrets-provider-for-k8s/blob/main/PUSH_TO_FILE.md#table-of-contents)
+- [Conjur Kubernetes Integration Documentation](https://docs.conjur.org/Latest/en/Content/Integrations/kubernetes.htm?tocpath=Integrations%7COpenShift%252C%20Kubernetes%7C_____0)
 
-If the scenario is part of a set of related scenarios, the table of contents will appear here as a bulleted list of all the scenario titles, with links to each other.
-
-- Scenario A
-- Scenario B
-- Scenario C
-
-## Further Learning
-
-You could link to other learning resources here. What is a good next step for a learner who just completed this scenario?
 
 

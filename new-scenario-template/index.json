@@ -2,7 +2,7 @@
   "title": "Secrets Provider Push-to-File Quick Start Guide",
   "description": "Deploy an application that uses Secrets Provider in Push-to-File mode.",
   "difficulty": "Beginner",
-  "time": "3 minutes",
+  "time": "15 minutes",
   "details": {
     "steps": [
       { "title": "Persona: Conjur Admin", "text": "1_steps_for_conjur_admin.md" },
