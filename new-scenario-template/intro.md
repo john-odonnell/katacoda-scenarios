@@ -13,6 +13,8 @@ including `kubectl` and `helm`.
 ## We will...
 
 1. Deploy Conjur Open Source to a Kubernetes Cluster
-2. Enable the Conjur Kubernetes Authenticator
+2. Configure the Conjur Kubernetes Authenticator
 3. Install the Conjur Configuration Helm charts
 4. Configure and deploy the application and Secrets Provider
+
+Once the terminal reads `Environment ready`, proceed to the next step.

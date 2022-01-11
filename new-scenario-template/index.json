@@ -5,22 +5,14 @@
   "time": "3 minutes",
   "details": {
     "steps": [
-      {
-        "title": "Deploy Conjur Open Source",
-        "text": "1_deploy_conjur.md"
-      },
-      {
-        "title": "Configure the Kubernetes Authenticator",
-        "text": "2_configure_authenticator.md"
-      },
-      {
-        "title": "Install the Conjur Configuration Helm Charts",
-        "text": "3_install_config_charts.md"
-      },
-      {
-        "title": "Deploy the Application with a Secrets Provider Init Container",
-        "text": "4_deploy_sp_app.md"
-      }
+      { "title": "Persona: Conjur Admin", "text": "1_steps_for_conjur_admin.md" },
+      { "title": "Deploy Conjur Open Source", "text": "2_deploy_conjur.md" },
+      { "title": "Configure the Kubernetes Authenticator", "text": "3_configure_authenticator.md" },
+      { "title": "Install the Conjur Configuration Cluster Preparation Helm charts", "text": "4_cluster_prep.md" },
+      
+      { "title": "Persona: App Developer", "text": "5_steps_for_developer.md" },
+      { "title": "Install the Conjur Configuration Namespace Preparation Helm charts", "text": "6_namespace_prep.md" },
+      { "title": "Deploy the Application with a Secrets Provider Init Container", "text": "7_deploy_sp_app.md" }
     ],
     "intro": {
       "text": "intro.md",

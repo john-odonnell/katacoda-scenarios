@@ -1,4 +1,4 @@
-# Install the Conjur Configuration Helm Charts
+# Install the Conjur Configuration Cluster Preparation Helm charts
 
 Next, prepare the Kubernetes cluster and an application namespace with the
 Conjur Configuration Helm charts.
@@ -6,7 +6,7 @@ Conjur Configuration Helm charts.
 Retrieve a SSL certificate from Conjur, using the script `get-conjur-cert.sh`.
 This script can be downloaded from the Conjur Kubernetes Authenticator's
 [GitHub release](https://github.com/cyberark/conjur-authn-k8s-client/releases/tag/v0.22.0),
-but for the purposes of this example, it has been included as
+but for the purposes of this quick-start, it has been included as
 `/usr/local/bin/get-conjur-cert.sh`.
 
 ```
@@ -30,19 +30,3 @@ helm install cluster-prep-chart cyberark/conjur-config-cluster-prep -n conjur-os
   --set authnK8s.authenticatorID="quickstart-cluster" \
   --set authnK8s.clusterRole.name="conjur-clusterrole"
 ```{{execute}}
-
-Create and prepare the application namespace for Conjur Kubernetes
-Authentication with the Namespace Preparation Helm chart. This
-Helm chart creates:
-- a Conjur connection ConfigMap, containing references to credentials stored in
-  the "Golden" ConfigMap.
-- an Authenticator RoleBinding, which grants permissions to the authenticator
-  ServiceAccount.
-
-```
-helm install namespace-prep-chart cyberark/conjur-config-namespace-prep \
-  -n quickstart-namespace --create-namespace \
-  --set authnK8s.goldenConfigMap="conjur-configmap" \
-  --set authnK8s.namespace="conjur-oss"
-```{{execute}}
-

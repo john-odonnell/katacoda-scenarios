@@ -1,12 +1,12 @@
 # Configure the Kubernetes Authenticator
 
-Next, we will configure the Kubernetes Authenticator, and an identity 
+Next, we will enable and configure the Kubernetes Authenticator, and establish
+an identity in Conjur to authenticate the application.
 
-Next, deploy a Conjur CLI pod, and load policy to setup the Conjur Kubernetes
+First, deploy a Conjur CLI pod, and load policy to setup the Conjur Kubernetes
 Authenticator.
 
 Deploy a Conjur CLI pod to the recently created Conjur namespace:
-
 ```
 cat <<EOF | kubectl apply -n conjur-oss -f -
 apiVersion: apps/v1
@@ -42,7 +42,6 @@ EOF
 ```{{execute}}
 
 Once the CLI pod is running, copy policy files into the CLI container:
-
 ```
 CLI_POD="$(kubectl get pods -n conjur-oss | grep cli | awk '{print $1}')"
 kubectl cp /policy "${CLI_POD}:/policy" -n conjur-oss
@@ -59,13 +58,16 @@ yes yes | conjur init -u https://conjur-deployment-conjur-oss.conjur-oss.svc.clu
 conjur authn login -u admin -p $ADMIN_API_KEY
 ```{{execute}}
 
-Load the Conjur Policy to setup the Kubernetes Authenticator:
+Load the Policy to setup the Kubernetes Authenticator. For more information on
+the policy included here, see the documentation for
+[Enabling the Kubernetes Authenticator](https://docs.conjur.org/Latest/en/Content/Integrations/Kubernetes_deployApplicationCluster.htm?tocpath=Integrations%7COpenShift%252C%20Kubernetes%7C_____4).
 ```
 conjur policy load root /policy/setup_k8s_authn.yml
 conjur policy load root /policy/create_host.yml
 conjur policy load root /policy/app_secrets.yml
 conjur policy load root /policy/grants.yml
 ```{{execute}}
+
 
 Add secret values to Conjur:
 ```
