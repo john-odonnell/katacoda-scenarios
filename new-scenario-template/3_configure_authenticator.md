@@ -27,7 +27,7 @@ spec:
       serviceAccountName: conjur-deployment-conjur-oss
       containers:
       - name: conjur-cli
-        image: localhost:5000/conjur-cli:5-latest
+        image: cyberark/conjur-cli:5
         imagePullPolicy: Always
         command: ["sleep"]
         args: ["infinity"]
