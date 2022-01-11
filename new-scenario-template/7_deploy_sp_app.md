@@ -1,5 +1,3 @@
-# Deploy the Application with a Secrets Provider Init Container
-
 Take a look at the application manifest with `cat /manifests/app_manifest.yml`.
 
 There are a few aspects to note:

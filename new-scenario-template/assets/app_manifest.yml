@@ -25,8 +25,8 @@ spec:
         conjur.org/secrets-destination: file
         conjur.org/conjur-secrets.test-app: |
           - quickstart-app-resources/url
-          - quickstart-app-resources/admin_username: username
-          - quickstart-app-resources/admin_password: password
+          - admin_username: quickstart-app-resources/username
+          - admin_password: quickstart-app-resources/password
         conjur.org/secret-file-path.test-app: "./credentials.json"
         conjur.org/secret-file-format.test-app: "json"
     spec:

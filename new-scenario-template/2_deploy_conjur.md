@@ -1,5 +1,3 @@
-# Deploy Conjur Open Source
-
 First, we will deploy Conjur Open Source on the KinD cluster using the Conjur
 OSS Helm Chart.
 

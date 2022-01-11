@@ -1,5 +1,3 @@
-# Configure the Kubernetes Authenticator
-
 Next, we will enable and configure the Kubernetes Authenticator, and establish
 an identity in Conjur to authenticate the application.
 

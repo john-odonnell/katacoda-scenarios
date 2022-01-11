@@ -1,5 +1,3 @@
-# Install the Conjur Configuration Namespace Preparation Helm charts
-
 Create and prepare the application namespace for Conjur Kubernetes
 Authentication with the Namespace Preparation Helm chart. This
 Helm chart creates:

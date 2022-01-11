@@ -1,5 +1,3 @@
-# Install the Conjur Configuration Cluster Preparation Helm charts
-
 Next, prepare the Kubernetes cluster and an application namespace with the
 Conjur Configuration Helm charts.
 
