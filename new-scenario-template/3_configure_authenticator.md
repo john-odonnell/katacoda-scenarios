@@ -69,7 +69,8 @@ conjur policy load root /policy/grants.yml
 
 Add secret values to Conjur:
 ```
-conjur variable values add quickstart-app-resources/url 'https://service-url.com'
+conjur variable values add quickstart-app-resources/platform 'postgres'
+conjur variable values add quickstart-app-resources/url 'postgresql://pg-backend.quickstart-namespace.svc.cluster.local:5432/pg_backend'
 conjur variable values add quickstart-app-resources/username 'quickstartUser'
 conjur variable values add quickstart-app-resources/password 'MySecr3tP@ssword'
 ```{{execute}}

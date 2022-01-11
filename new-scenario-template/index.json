@@ -12,7 +12,9 @@
       
       { "title": "Persona: App Developer", "text": "5_steps_for_developer.md" },
       { "title": "Install the Conjur Configuration Namespace Preparation Helm charts", "text": "6_namespace_prep.md" },
-      { "title": "Deploy the Application with a Secrets Provider Init Container", "text": "7_deploy_sp_app.md" }
+      { "title": "Deploy a Postgres Backend", "text": "7_deploy_backend.md" },
+      { "title": "Deploy the Application with a Secrets Provider Init Container", "text": "8_deploy_sp_app.md" },
+      { "title": "Confirm the Application can Access Secrets", "text": "9_confirm_deployment.md" }
     ],
     "intro": {
       "text": "intro.md",
@@ -26,6 +28,7 @@
       "host01": [
         {"file": "get-conjur-cert.sh", "target": "/usr/local/bin/", "chmod": "+x"},
         {"file": "app_manifest.yml", "target": "/manifests/"},
+        {"file": "curl_manifest.yml", "target": "/manifests/"},
         {"file": "setup_k8s_authn.yml", "target": "/policy/"},
         {"file": "create_host.yml", "target": "/policy/"},
         {"file": "app_secrets.yml", "target": "/policy/"},
