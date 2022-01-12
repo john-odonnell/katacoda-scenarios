@@ -5,18 +5,18 @@
   "time": "15 minutes",
   "details": {
     "steps": [
-      { "title": "Start minikube", "text": "launch_minikube.md" },
+      { "title": "Start minikube", "text": "1_launch_minikube.md" },
 
-      { "title": "Persona: Conjur Admin", "text": "1_steps_for_conjur_admin.md" },
-      { "title": "Deploy Conjur Open Source", "text": "2_deploy_conjur.md" },
-      { "title": "Configure the Kubernetes Authenticator", "text": "3_configure_authenticator.md" },
-      { "title": "Install the Conjur Configuration Cluster Preparation Helm charts", "text": "4_cluster_prep.md" },
+      { "title": "Persona: Conjur Admin", "text": "2_steps_for_conjur_admin.md" },
+      { "title": "Deploy Conjur Open Source", "text": "3_deploy_conjur.md" },
+      { "title": "Configure the Kubernetes Authenticator", "text": "4_configure_authenticator.md" },
+      { "title": "Install the Conjur Configuration Cluster Preparation Helm charts", "text": "5_cluster_prep.md" },
 
-      { "title": "Persona: App Developer", "text": "5_steps_for_developer.md" },
-      { "title": "Install the Conjur Configuration Namespace Preparation Helm charts", "text": "6_namespace_prep.md" },
-      { "title": "Deploy a Postgres Backend", "text": "7_deploy_backend.md" },
-      { "title": "Deploy the Application with a Secrets Provider Init Container", "text": "8_deploy_sp_app.md" },
-      { "title": "Confirm the Application can Access Secrets", "text": "9_confirm_deployment.md" }
+      { "title": "Persona: App Developer", "text": "6_steps_for_developer.md" },
+      { "title": "Install the Conjur Configuration Namespace Preparation Helm charts", "text": "7_namespace_prep.md" },
+      { "title": "Deploy a Postgres Backend", "text": "8_deploy_backend.md" },
+      { "title": "Deploy the Application with a Secrets Provider Init Container", "text": "9_deploy_sp_app.md" },
+      { "title": "Confirm the Application can Access Secrets", "text": "10_confirm_deployment.md" }
     ],
     "intro": {
       "text": "intro.md"

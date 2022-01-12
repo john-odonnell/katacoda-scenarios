@@ -2,7 +2,6 @@ Once the application has been deployed, we're going to examine the secret files
 that have been shared with the Pet Store app. Investigate the contents of the
 secret file:
 ```
-APP_POD="$(kubectl get pods -n quickstart-namespace | grep quickstart-app | awk '{print $1}')"
 kubectl exec "$APP_POD" -c demo-app -n quickstart-namespace -- cat /opt/secrets/conjur/secrets-file
 ```{{execute}}
 
@@ -20,6 +19,7 @@ Let's create a pod in `quickstart-namespace` that can make HTTP requests to the
 Pet Store:
 ```
 kubectl create -f /manifests/curl_manifest.yml -n quickstart-namespace
+kubectl wait --for=condition=ready "pod/curl-pod" -n quickstart-namespace
 ```{{execute}}
 
 Add a pet to the Pet Store's database:

@@ -37,11 +37,12 @@ spec:
       imagePullSecrets:
         - name: dockerpullsecret
 EOF
+CLI_POD="$(kubectl get pods -n conjur-oss | grep cli | awk '{print $1}')"
+kubectl wait --for=condition=ready "pod/${CLI_POD}" -n conjur-oss
 ```{{execute}}
 
 Once the CLI pod is running, copy policy files into the CLI container:
 ```
-CLI_POD="$(kubectl get pods -n conjur-oss | grep cli | awk '{print $1}')"
 kubectl cp /policy "${CLI_POD}:/policy" -n conjur-oss
 ```{{execute}}
 
