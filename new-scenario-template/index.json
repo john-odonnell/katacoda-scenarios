@@ -5,11 +5,13 @@
   "time": "15 minutes",
   "details": {
     "steps": [
+      { "title": "Start minikube", "text": "launch_minikube.md" },
+
       { "title": "Persona: Conjur Admin", "text": "1_steps_for_conjur_admin.md" },
       { "title": "Deploy Conjur Open Source", "text": "2_deploy_conjur.md" },
       { "title": "Configure the Kubernetes Authenticator", "text": "3_configure_authenticator.md" },
       { "title": "Install the Conjur Configuration Cluster Preparation Helm charts", "text": "4_cluster_prep.md" },
-      
+
       { "title": "Persona: App Developer", "text": "5_steps_for_developer.md" },
       { "title": "Install the Conjur Configuration Namespace Preparation Helm charts", "text": "6_namespace_prep.md" },
       { "title": "Deploy a Postgres Backend", "text": "7_deploy_backend.md" },
@@ -17,9 +19,7 @@
       { "title": "Confirm the Application can Access Secrets", "text": "9_confirm_deployment.md" }
     ],
     "intro": {
-      "text": "intro.md",
-      "code": "foreground.sh",
-      "courseData": "background.sh"
+      "text": "intro.md"
     },
     "finish": {
       "text": "finish.md"
@@ -40,6 +40,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "ubuntu:2004"
+    "imageid": "minikube"
   }
 }
