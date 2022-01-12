@@ -1,6 +1,6 @@
-Once the application has been deployed, we're going to examine the secret files
-that have been shared with the Pet Store app. Investigate the contents of the
-secret file:
+Now that the application has been deployed, we can examine the secret files that
+have been shared with the Pet Store app. Investigate the contents of the secret
+file:
 ```
 kubectl exec "$APP_POD" -c demo-app -n quickstart-namespace -- cat /opt/secrets/conjur/secrets-file
 ```{{execute}}
@@ -14,12 +14,12 @@ export DB_PASSWORD="MySecr3tP@ssword"
 ```
 
 If the file has been successfully rendered in the shared volume, that means our
-demo Pet Store app will have the credentials it needs to access it's backend.
+demo Pet Store app will have the credentials it needs to access its backend.
 Let's create a pod in `quickstart-namespace` that can make HTTP requests to the
-Pet Store:
+Pet Store with `curl`:
 ```
 kubectl create -f /manifests/curl_manifest.yml -n quickstart-namespace
-kubectl wait --for=condition=ready "pod/curl-pod" -n quickstart-namespace
+kubectl wait --for=condition=ready --timeout=300s "pod/curl-pod" -n quickstart-namespace
 ```{{execute}}
 
 Add a pet to the Pet Store's database:
@@ -37,7 +37,7 @@ kubectl exec curl-pod -n quickstart-namespace \
   -- curl quickstart-app.quickstart-namespace.svc.cluster.local:8080/pets
 ```{{execute}}
 
-If the requests are successful, you'll get the following output:
+If the requests are successful, the terminal will output:
 ```
 [{"id":1,"name":"Snoopy"}]
 ```

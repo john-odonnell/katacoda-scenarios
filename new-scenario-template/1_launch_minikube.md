@@ -1,5 +1,5 @@
-This scenario used the Katacoda's pre-configured minikube image. Before we
-begin, lets make sure that the minikube cluster is running:
+This scenario uses Katacoda's `minikube` image. Before we begin, lets make sure
+that the minikube cluster is running:
 ```
 minikube start
 ```{{execute}}
