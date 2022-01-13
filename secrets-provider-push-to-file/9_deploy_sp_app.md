@@ -32,6 +32,7 @@ There are three required volumes:
   
 
 Deploy the application:
+
 ```
 kubectl apply -n quickstart-namespace -f /manifests/app_manifest.yml
 APP_POD="$(kubectl get pods -n quickstart-namespace | grep quickstart-app | awk '{print $1}')"

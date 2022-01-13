@@ -5,7 +5,7 @@
   "time": "15 minutes",
   "details": {
     "steps": [
-      { "title": "Start minikube", "text": "1_launch_minikube.md" },
+      { "title": "Launch minikube", "text": "1_launch_minikube.md" },
 
       { "title": "Persona: Conjur Admin", "text": "2_steps_for_conjur_admin.md" },
       { "title": "Deploy Conjur Open Source", "text": "3_deploy_conjur.md" },

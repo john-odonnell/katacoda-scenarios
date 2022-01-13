@@ -5,6 +5,7 @@ Helm chart creates:
   the "Golden" ConfigMap.
 - an Authenticator RoleBinding, which grants permissions to the authenticator
   ServiceAccount.
+
 ```
 helm install namespace-prep-chart cyberark/conjur-config-namespace-prep \
   -n quickstart-namespace --create-namespace \
